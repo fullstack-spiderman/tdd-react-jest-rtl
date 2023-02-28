@@ -8,15 +8,17 @@ export default function App() {
 	const [users, setUsers] = useState([]);
 
 	const onUserAdd = (user) => {
-		// console.log({ user });
-		setUsers([...users, user]);
+		setUsers((previousUsers) => [...previousUsers, user]);
 	};
+
+	console.log({ users });
 
 	return (
 		<div className="App">
 			<p>Learning React Testing</p>
 			<UserForm onUserAdd={onUserAdd} />
 			<hr />
+
 			<UserList users={users} />
 		</div>
 	);
